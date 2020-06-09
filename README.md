@@ -41,7 +41,7 @@ The layout was build by the Rocketseat team and can be viwed [here](https://www.
 ```bash
 # Clone this repository
 $ https://github.com/Goncalves-Rafael/next-level-week01
-
+$ cd next-level-week01
 # Edit env file inside src/config in every project 
 ```
 
@@ -54,10 +54,10 @@ $ cd server
 $ npm install
 
 # Run Migrates
-$ npm knex:migrate
+$ npm run knex:migrate
 
 # Run Seeds
-$ npm knex:seed
+$ npm run knex:seed
 
 # Start server
 $ npm run dev
