@@ -112,9 +112,9 @@ const Points = () => {
         </Text>
 
         <View style={styles.mapContainer}>
-          { initialPosition[0] !== 0 && <MapView style={styles.map} initialRegion={{
+          { initialPosition[0] !== 0 ? <MapView style={styles.map} initialRegion={{
               latitude: initialPosition[0],
-              longitude: initialPosition[0],
+              longitude: initialPosition[1],
               latitudeDelta: 0.07,
               longitudeDelta: 0.07
             }}>
@@ -138,7 +138,7 @@ const Points = () => {
                   </View>
                 </Marker>
               ))}
-            </MapView>
+            </MapView> : <Text>Teste</Text>
           }
         </View>
       </View>
