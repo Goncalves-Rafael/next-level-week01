@@ -5,8 +5,6 @@ class PointController {
   async index (request: Request, response: Response) {
       const { uf, city, items } = request.query;
       const idItems = items ? String(items).split(',').map(el => Number(el.trim())) : [];
-      console.log(items)
-      console.log(idItems)
       const points = await knex('point')
         .join('point_item', 'point.id', '=', 'point_item.point_id')
         .join('item', 'item.id', '=', 'point_item.item_id')
@@ -26,7 +24,7 @@ class PointController {
         }
       })
 
-      return response.json(points);
+      return response.json(serializedItens);
   }
 
   async show (request: Request, response: Response) {
@@ -85,8 +83,7 @@ class PointController {
     });
 
     const pointId = insertedIds[0];
-
-    const pointItems = itens.map((item_id: number) => {
+    const pointItems = itens.split(',').map((item: string) => Number(item.trim())).map((item_id: number) => {
       return {
         item_id,
         point_id: pointId
